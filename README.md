@@ -21,3 +21,4 @@ Plugins installed via Vundle:
 - ZSH syntax highlight
 - fzf: Fuzzy finder
 - Kitty: Terminal emulator
+- FantasqueSans: Nerd font
