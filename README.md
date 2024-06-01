@@ -22,3 +22,14 @@ Plugins installed via Vundle:
 - fzf: Fuzzy finder
 - Kitty: Terminal emulator
 - FantasqueSans: Nerd font
+
+
+## Installation
+- Clone dotfiles repo
+`git clone https://github.com/bapatchirag/dotfiles.git`
+- Change permissions of install script
+`chmod 777 install.sh`
+- Run install script
+`./install.sh`
+- For kitty, edit the location of the background image to the location of the image as downloaded
+- For vim, install plugins by starting vim and running `:PluginInstall`. Restarting vim should show changes
