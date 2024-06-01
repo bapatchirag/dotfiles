@@ -20,3 +20,4 @@ Plugins installed via Vundle:
 - ZSH autocomplete
 - ZSH syntax highlight
 - fzf: Fuzzy finder
+- Kitty: Terminal emulator
