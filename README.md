@@ -1,6 +1,9 @@
 # dotfiles
 Linux/ZSH environment sync
 
+## TODO
+- [ ] Try out CoC; add to script if useful
+
 ## vim/nvim plugin list 
 
 Plugins installed via Vundle:
