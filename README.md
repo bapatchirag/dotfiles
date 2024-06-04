@@ -17,6 +17,7 @@ Plugins installed via Vundle:
 - ALE: Error checker/Linter
 - Peekaboo: Quick search and enumerate
 - Lightline-ale: ALE integration in lightline status bar
+- vim-fzf: FZF integration with vim
 
 ## System tools list
 - neofetch: System status

@@ -19,6 +19,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'dense-analysis/ale'
 Plugin 'junegunn/vim-peekaboo'
 Plugin 'maximbaz/lightline-ale'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
