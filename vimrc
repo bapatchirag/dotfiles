@@ -21,18 +21,39 @@ Plugin 'junegunn/vim-peekaboo'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
+Plugin 'mengelbrecht/lightline-bufferline'
+Plugin 'NLKNguyen/copy-cut-paste.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
-" Lightline stuff
+" Lightline and related stuff
 set laststatus=2
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'default'
       \ }
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \  'buffers': 'lightline#bufferline#buffers'
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \     'buffers': 'tabsel'
+      \ }
+let g:lightline.active = { 'left': [[ 'mode', 'paste' ], [ 'readonly', 'buffers', 'modified' ]], 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+let g:lightline#bufferline#show_number  = 1
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 " Theme stuff
 set background=dark
@@ -43,24 +64,6 @@ let g:disable_float_bg = 1
 " NERDTree stuff
 map <C-o> :NERDTreeToggle<CR>
 
-" Lightline-ale stuff
-let g:lightline = {}
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_infos': 'lightline#ale#infos',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-let g:lightline.component_type = {
-      \     'linter_checking': 'right',
-      \     'linter_infos': 'right',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'right',
-      \ }
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
-
 " Generic stuff
 set number
 syntax on
@@ -69,3 +72,16 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Function name display
+fun! ShowFuncName()
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bWn'))
+  echohl None
+endfun
+map f :call ShowFuncName() <CR>
+
+" Buffer cycle mappings (overrides gn and gN)
+map gn :bnext<CR>
+map gN :bprevious<CR>
+map gd :bdelete<CR>
