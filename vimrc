@@ -23,6 +23,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'NLKNguyen/copy-cut-paste.vim'
+Plugin 'AutoScrollMode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,6 +73,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set cursorline
 
 " Function name display
 fun! ShowFuncName()
