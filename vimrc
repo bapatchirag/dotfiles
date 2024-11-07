@@ -65,6 +65,10 @@ let g:disable_float_bg = 1
 " NERDTree stuff
 map <C-o> :NERDTreeToggle<CR>
 
+" FZF/RG stuff
+map <C-f> :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 " Generic stuff
 set number
 syntax on
