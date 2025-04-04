@@ -27,6 +27,8 @@ Plugins installed via Vundle:
 - fzf: Fuzzy finder
 - Kitty: Terminal emulator
 - FantasqueSans: Nerd font
+- sshs: SSH config selector (from .ssh/config) [Not added to install.sh yet]
+- lazygit: Git TUI [Not added to install.sh yet]
 
 
 ## Installation
